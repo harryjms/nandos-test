@@ -14,4 +14,14 @@ describe("Plateau", () => {
       new Rover(plateau, { x: 3, y: 4, heading: "N" }),
     ]);
   });
+
+  it("should throw error when invalid grid size is supplied", () => {
+    expect(() => {
+      new Plateau(0, 2);
+    }).toThrow("Invalid grid size");
+
+    expect(() => {
+      new Plateau(2, 0);
+    }).toThrow("Invalid grid size");
+  });
 });

@@ -8,6 +8,7 @@ class Plateau {
   constructor(x: number, y: number) {
     this.x = x;
     this.y = y;
+    if (x === 0 || y === 0) throw new Error("Invalid grid size");
   }
 
   /**
@@ -15,13 +16,6 @@ class Plateau {
    */
   addRover(rover: RoverInstruction) {
     this.rovers.push(new Rover(this, rover[0]));
-  }
-
-  /**
-   * Checks if given square is occupied
-   */
-  squareOccupied(x: number, y: number) {
-    return this.rovers.find((rover) => rover.x === x && rover.y === y) !== null;
   }
 }
 
