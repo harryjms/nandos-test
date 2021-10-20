@@ -6,9 +6,10 @@
   "author": "Harry Jarman <me@harryjms.uk>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf build && tsc",
     "start": "node build/index.js",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.15.8",
