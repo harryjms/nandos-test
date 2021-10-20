@@ -114,6 +114,6 @@ describe("Rover", () => {
   });
 
   it("should return the string of the current rover position", () => {
-    expect(rover.getPosition()).toBe("3 3 E");
+    expect(rover.getPosition()).toBe("5 1 E");
   });
 });
