@@ -1,5 +1,10 @@
 import Plateau from "./Plateau";
 
+export type RoverInstruction = [
+  { x: number; y: number; heading: Heading },
+  string[]
+];
+
 class Rover {
   public x: number;
   public y: number;

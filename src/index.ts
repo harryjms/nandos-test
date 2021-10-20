@@ -1,5 +1,5 @@
 import Plateau from "./lib/Plateau";
-import Rover from "./lib/Rover";
+import Rover, { RoverInstruction } from "./lib/Rover";
 
 const instructionSet = `5 5
 1 2 N
@@ -10,10 +10,7 @@ MMRMMRMRRM`;
 function parseInstructions(instructions: string) {
   let plateauConfig: { x: number; y: number } = { x: 0, y: 0 };
   let rover = 0;
-  let roverInstructions: [
-    { x: number; y: number; heading: string },
-    string[]
-  ][] = [];
+  let roverInstructions: RoverInstruction[] = [];
   const lines = instructions.split(/\n/g);
 
   lines.forEach((line) => {
@@ -24,7 +21,7 @@ function parseInstructions(instructions: string) {
     }
     if (/^\d \d \w$/.test(line)) {
       const roverProps = line.split(" ");
-      const heading = roverProps[2];
+      const heading = roverProps[2] as RoverInstruction[0]["heading"];
       roverInstructions[rover] = [
         { x: parseInt(roverProps[0]), y: parseInt(roverProps[1]), heading },
         [],
@@ -43,6 +40,11 @@ function main() {
     parseInstructions(instructionSet);
 
   const plateau = new Plateau(plateauConfig.x, plateauConfig.y);
+  roverInstructions.forEach((rover) => {
+    plateau.addRover(rover);
+  });
+
+  console.log(plateau);
 
   //   let parseInstructions = instructionSet.split("\n");
   //   const plateauConfig = parseInstructions[0];
