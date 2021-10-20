@@ -5,7 +5,10 @@ describe("parseInstructions", () => {
     1 3 N
     MMRMRML
     5 1 E
-    MMLMRMLMM`;
+    MMLMRMLMM
+    1
+    4 2 N
+    MML`;
 
   const { plateauConfig, roverInstructions } =
     parseInstructions(instructionSet);
@@ -21,6 +24,7 @@ describe("parseInstructions", () => {
         { x: 5, y: 1, heading: "E" },
         ["M", "M", "L", "M", "R", "M", "L", "M", "M"],
       ],
+      [{ x: 4, y: 2, heading: "N" }, ["M", "M", "L"]],
     ]);
   });
 });

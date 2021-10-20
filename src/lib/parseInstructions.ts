@@ -8,12 +8,12 @@ function parseInstructions(instructions: string) {
 
   lines.forEach((l) => {
     const line = l.trim();
-    if (/^\d \d$/.test(line)) {
+    if (/^[0-9]{1,} [0-9]{1,}$/.test(line)) {
       const [x, y] = line.split(" ");
       plateauConfig.x = parseInt(x);
       plateauConfig.y = parseInt(y);
     }
-    if (/^\d \d \w$/.test(line)) {
+    if (/^[0-9]{1,} [0-9]{1,} [N|E|S|W]$/.test(line)) {
       const roverProps = line.split(" ");
       const heading = roverProps[2] as RoverInstruction[0]["heading"];
       roverInstructions[rover] = [
@@ -21,7 +21,7 @@ function parseInstructions(instructions: string) {
         [],
       ];
     }
-    if (/^\w{1,}$/.test(line)) {
+    if (/^[A-Z]{1,}$/.test(line)) {
       roverInstructions[rover][1] = line.split("") as RoverInstruction[1];
       rover++;
     }
