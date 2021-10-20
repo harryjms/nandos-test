@@ -101,16 +101,6 @@ class Rover {
     });
     return { x: this.x, y: this.y, heading: this.heading };
   }
-
-  //   public move(move: Moves[]) {
-  //     const nextPosition = this.calculateMove(move);
-  //     if (this.plateau.onGrid(nextPosition.x, nextPosition.y)) {
-  //       this.x = nextPosition.x;
-  //       this.y = nextPosition.y;
-  //       return { success: true, position: { x: this.x, y: this.y } };
-  //     }
-  //     return { sucess: false, position: { x: this.x, y: this.y } };
-  //   }
 }
 
 export default Rover;
