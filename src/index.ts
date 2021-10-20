@@ -5,7 +5,9 @@ const instructionSet = `5 5
 1 2 N
 LMLMLMLMM
 3 3 E
-MMRMMRMRRM`;
+MMRMMRMRRM
+4 2 S
+MRRMMLM`;
 
 function parseInstructions(instructions: string) {
   let plateauConfig: { x: number; y: number } = { x: 0, y: 0 };
