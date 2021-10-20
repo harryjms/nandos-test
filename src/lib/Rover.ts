@@ -2,7 +2,7 @@ import Plateau from "./Plateau";
 
 export type RoverInstruction = [
   { x: number; y: number; heading: Heading },
-  string[]
+  Moves[]
 ];
 
 class Rover {
@@ -105,6 +105,10 @@ class Rover {
       this.heading = heading;
     });
     return { x: this.x, y: this.y, heading: this.heading };
+  }
+
+  public getPosition() {
+    return `${this.x} ${this.y} ${this.heading}`;
   }
 }
 

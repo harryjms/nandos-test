@@ -28,7 +28,7 @@ function parseInstructions(instructions: string) {
       ];
     }
     if (/^\w{1,}$/.test(line)) {
-      roverInstructions[rover][1] = line.split("");
+      roverInstructions[rover][1] = line.split("") as RoverInstruction[1];
       rover++;
     }
   });
@@ -41,16 +41,10 @@ function main() {
 
   const plateau = new Plateau(plateauConfig.x, plateauConfig.y);
   roverInstructions.forEach((rover) => {
-    plateau.addRover(rover);
+    const r = new Rover(plateau, rover[0]);
+    r.move(rover[1]);
+    console.log(r.getPosition());
   });
-
-  console.log(plateau);
-
-  //   let parseInstructions = instructionSet.split("\n");
-  //   const plateauConfig = parseInstructions[0];
-  //   parseInstructions.shift();
-  //   const rovers = createRovers(parseInstructions);
-  //   console.log(rovers);
 }
 
 main();
