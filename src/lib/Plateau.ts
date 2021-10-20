@@ -10,13 +10,6 @@ class Plateau {
     this.y = y;
     if (x === 0 || y === 0) throw new Error("Invalid grid size");
   }
-
-  /**
-   * Adds a rover to the grid
-   */
-  addRover(rover: RoverInstruction) {
-    this.rovers.push(new Rover(this, rover[0]));
-  }
 }
 
 export default Plateau;
