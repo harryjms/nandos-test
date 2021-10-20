@@ -6,6 +6,8 @@
   "author": "Harry Jarman <me@harryjms.uk>",
   "license": "MIT",
   "scripts": {
+    "build": "tsc",
+    "start": "node build/src/index.js",
     "test": "jest"
   },
   "devDependencies": {
