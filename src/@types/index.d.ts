@@ -1,10 +1,10 @@
-interface IPosition {
+declare interface IPosition {
   x: number;
   y: number;
   heading: Heading;
 }
 
-type Moves =
+declare type Moves =
   /**
    * Rotate left 90 degrees
    */
@@ -18,4 +18,4 @@ type Moves =
    */
   | "M";
 
-type Heading = "N" | "E" | "S" | "W";
+declare type Heading = "N" | "E" | "S" | "W";
