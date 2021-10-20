@@ -93,6 +93,12 @@ class Rover {
   }
 
   public move(moves: Moves[]): IPosition {
+    moves.forEach((move) => {
+      const { x, y, heading } = this.calculateMove(move);
+      this.x = x;
+      this.y = y;
+      this.heading = heading;
+    });
     return { x: this.x, y: this.y, heading: this.heading };
   }
 

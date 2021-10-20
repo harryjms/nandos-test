@@ -87,4 +87,29 @@ describe("Rover", () => {
     rover.heading = "E";
     expect(rover.calculateMove("M")).toEqual({ x: 4, y: 3, heading: "E" });
   });
+
+  // Complete move
+  it("should end at 1 3 N", () => {
+    rover.x = 1;
+    rover.y = 2;
+    rover.heading = "N";
+    expect(rover.move(["L", "M", "L", "M", "L", "M", "L", "M", "M"])).toEqual({
+      x: 1,
+      y: 3,
+      heading: "N",
+    });
+  });
+
+  it("should end at 5 1 E", () => {
+    rover.x = 3;
+    rover.y = 3;
+    rover.heading = "E";
+    expect(
+      rover.move(["M", "M", "R", "M", "M", "R", "M", "R", "R", "M"])
+    ).toEqual({
+      x: 5,
+      y: 1,
+      heading: "E",
+    });
+  });
 });
