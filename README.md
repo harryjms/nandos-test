@@ -1,6 +1,8 @@
 # Nando's code test
 
-This is my solution to the Mars rover code test for Nando's. This task took around 3 hours to complete.
+This is my solution to the Mars rover code test for Nando's 🚀
+
+This task took around 3 hours to complete
 
 ## Installation
 
