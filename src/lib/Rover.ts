@@ -50,15 +50,16 @@ class Rover {
     return heading;
   }
 
-  public forward() {
+  public forward(heading: Heading) {
     let coords = { x: this.x, y: this.y };
-
-    switch (this.heading) {
+    switch (heading) {
       case "N":
         coords.y++;
+        if (coords.y > this.plateau.y) coords.y = this.plateau.y;
         break;
       case "E":
         coords.x++;
+        if (coords.x > this.plateau.x) coords.x = this.plateau.x;
         break;
       case "S":
         coords.y--;
@@ -72,6 +73,38 @@ class Rover {
 
     return coords;
   }
+
+  public calculateMove(move: Moves): IPosition {
+    let np = { x: this.x, y: this.y, heading: this.heading };
+
+    switch (move) {
+      case "L":
+      case "R":
+        np.heading = this.rotate(move);
+        break;
+      case "M":
+        const { x, y } = this.forward(np.heading);
+        np.x = x;
+        np.y = y;
+        break;
+    }
+
+    return np;
+  }
+
+  public move(moves: Moves[]): IPosition {
+    return { x: this.x, y: this.y, heading: this.heading };
+  }
+
+  //   public move(move: Moves[]) {
+  //     const nextPosition = this.calculateMove(move);
+  //     if (this.plateau.onGrid(nextPosition.x, nextPosition.y)) {
+  //       this.x = nextPosition.x;
+  //       this.y = nextPosition.y;
+  //       return { success: true, position: { x: this.x, y: this.y } };
+  //     }
+  //     return { sucess: false, position: { x: this.x, y: this.y } };
+  //   }
 }
 
 export default Rover;
